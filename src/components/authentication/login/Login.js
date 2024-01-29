@@ -1,20 +1,21 @@
-import axios from 'axios';
-import { Field, Formik } from 'formik'
-import React, { useState } from 'react'
+import { Field, Formik } from 'formik';
+import React, { useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import * as Yup from 'yup';
+import apiServices from '../../utils/service-calls/apiServices';
 
-const Login = () => {
-    const [initialValues, setInitialValues] = useState({
+const Login = ({ setLoggedIn }) => {
+    const [initialValues] = useState({
         email: '',
         password: '',
     });
 
     const submitForm = (values, resetForm) => {
-        console.log(' form values are here ', values);
-        resetForm();
-        axios.post('http://localhost:6969/chatbotuserlogin', values).then(res => {
-            console.log(' res from the call ', res);
+        apiServices.chatbotUserLogin(values).then(res => {
+            localStorage?.setItem('token', res?.data?.auth_token)
+            if (res?.data?.auth_token) {
+                setLoggedIn(true)
+            }
         })
     }
     return (
@@ -52,6 +53,8 @@ const Login = () => {
                                 </Col>
                             </Row>
                             <Button type="submit">Login</Button>
+
+
                         </form>
                     )}
                 </Formik>
