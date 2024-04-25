@@ -40,10 +40,8 @@ const Login = ({ setLoggedIn }) => {
                         <form noValidate onSubmit={handleSubmit}>
                             <Row>
                                 <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12} >
-                                    <div >
                                         <label htmlFor="email">Email</label>
                                         <Field type="text" className="form-control" name="email" />
-                                    </div>
                                 </Col>
                             </Row>
                             <Row>

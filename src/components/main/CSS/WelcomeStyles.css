@@ -1,0 +1,39 @@
+.headerText {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.subHeadText {
+    font-family: cursive;
+}
+
+.developmentsCard {
+    font-size: 0.7rem;
+}
+.eachCard {
+    transition: transform 0.5s;
+    overflow: hidden;
+    object-fit: cover;
+
+}
+.eachCard:hover {
+    background-color: rgb(94, 138, 173);
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+.card-title {
+    font-size: 1rem;
+    padding: 1rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card-title a {
+    text-decoration: none;
+    color: black;
+
+}
+.card-title a:hover{
+    text-decoration: none;
+    color: darkslategrey;
+
+}

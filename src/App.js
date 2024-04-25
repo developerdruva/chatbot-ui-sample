@@ -1,15 +1,20 @@
 import './App.css';
 
-import React, { useEffect, useState } from 'react'
-import Login from './components/authentication/login/Login';
+import React, { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
-import { reduxStore } from './components/redux/Store';
 import LoadingSpinner from './components/common/commonComps/LoadingSpinner';
+import { reduxStore } from './components/redux/Store';
+import RouterPage from './components/routes/RouterPage';
+import WelcomePage from './components/main/WelcomePage';
+import 'react-bootstrap';
+import NavbarHeader from './components/main/NavbarHeader';
 
 const store = reduxStore;
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(null);
+  const [themeMode, setThemeMode] = useState(true);
+
 
   const getTokenFromLogin = () => {
     reduxStore?.dispatch({ type: 'SHOW_SPINNER' })
@@ -27,12 +32,18 @@ const App = () => {
   }, [loggedIn])
   return (
     <Provider store={store}>
-      <div className="App">
-        {loggedIn ? 'hi there ' : <Login setLoggedIn={setLoggedIn} />}
+      <div className="App" style={{ backgroundColor: themeMode ? 'white' : 'black' }}>
+        <NavbarHeader setThemeMode={setThemeMode} themeMode={themeMode} />
+        {/* {JSON.stringify('them variable ' + themeMode)} */}
+        <RouterPage />
+        <LoadingSpinner />
       </div>
-      <LoadingSpinner />
     </Provider>
   )
 }
 
 export default App;
+
+{/* {loggedIn ? <RouterPage /> : <WelcomePage />} */ }
+{/* // <Login setLoggedIn={setLoggedIn} />} */ }
+{/* {loggedIn ? 'hi there ' : <Login setLoggedIn={setLoggedIn} />} */ }
