@@ -2,7 +2,7 @@ import { CircularProgress } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const LoadingSpinner = () => {
+const LoadingSpinner = ({ show }) => {
     const loaderState = useSelector(state => state?.spinner);
     return (
         <div>
@@ -15,7 +15,7 @@ const LoadingSpinner = () => {
                     : null
             } */}
             {
-                loaderState?.showSpinner ?
+                show || loaderState?.showSpinner ?
                     <div className="ringSpin">Loading..!
                         <span></span>
                     </div>

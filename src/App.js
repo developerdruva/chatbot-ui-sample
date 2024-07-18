@@ -8,6 +8,8 @@ import RouterPage from './components/routes/RouterPage';
 import WelcomePage from './components/main/WelcomePage';
 import 'react-bootstrap';
 import NavbarHeader from './components/main/NavbarHeader';
+import withLoader from './components/utils/withLoader';
+import ExampleData from './components/main/ExampleData';
 
 const store = reduxStore;
 
@@ -30,13 +32,19 @@ const App = () => {
   useEffect(() => {
     getTokenFromLogin()
   }, [loggedIn])
+
+  // const SampleDataComponent = withLoader(ExampleData);
+
   return (
     <Provider store={store}>
       <div className="App" style={{ backgroundColor: themeMode ? 'white' : 'black' }}>
         <NavbarHeader setThemeMode={setThemeMode} themeMode={themeMode} />
         {/* {JSON.stringify('them variable ' + themeMode)} */}
-        <RouterPage />
-        <LoadingSpinner />
+        {/* <RouterPage />
+        <LoadingSpinner /> */}
+        {/* <SampleDataComponent/>
+         */}
+         <ExampleData/>
       </div>
     </Provider>
   )
