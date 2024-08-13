@@ -40,11 +40,11 @@ const App = () => {
       <div className="App" style={{ backgroundColor: themeMode ? 'white' : 'black' }}>
         <NavbarHeader setThemeMode={setThemeMode} themeMode={themeMode} />
         {/* {JSON.stringify('them variable ' + themeMode)} */}
-        {/* <RouterPage />
-        <LoadingSpinner /> */}
+         <RouterPage />
+        {/*<LoadingSpinner /> */}
         {/* <SampleDataComponent/>
          */}
-         <ExampleData/>
+         {/* <ExampleData/> */}
       </div>
     </Provider>
   )
